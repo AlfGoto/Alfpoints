@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import CheckUser from '../components/checkUser'
+
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -13,18 +14,16 @@ const geistMono = localFont({
     weight: "100 900",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
     title: "AlfPoints",
     description: "The game where you need to travel the whole worlds to be the best",
 };
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({ children, }) {
+   
     return (
         <html lang="en">
+            <CheckUser />
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
                 {children}
             </body>
