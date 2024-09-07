@@ -10,10 +10,14 @@ export default function CheckUser() {
     useEffect(() => {
         checkUser()
 
-        if (screen) {
-            if (screen.orientation) if (screen.orientation.lock) screen.orientation.lock('portrait-primary')
-            if (screen.lockOrientation) screen.lockOrientation('portrait-primary')
-        }
+        // try{
+        //     if (screen) {
+        //         if (screen.orientation) if (screen.orientation.lock) screen.orientation.lock('portrait-primary')
+        //         if (screen.lockOrientation) screen.lockOrientation('portrait-primary')
+        //     }
+        // }catch(error){
+        //     console.log(error)
+        // }
     }, [])
 
     async function createUser(data) {
