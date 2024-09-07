@@ -22,7 +22,7 @@ export default function Map() {
             .then(e => setPoi(e))
     }
     if (!loc) return <p>Loading...</p>
-    return (<MapContainer center={[loc.lat, loc.lon]} zoom={23} scrollWheelZoom={false} dragging={false} doubleClickZoom={false} zoomControl={false}>
+    return (<div id='mapPersc'><MapContainer center={[loc.lat, loc.lon]} zoom={23} scrollWheelZoom={false} dragging={false} doubleClickZoom={false} zoomControl={false}>
         <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url=" https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" />
         <Marker position={[loc.lat, loc.lon]} icon={icon.here} autoPan={false}>
@@ -31,7 +31,7 @@ export default function Map() {
             </Popup>
         </Marker>
         {poi.map(e=><Poi key={e.osm_id} data={e}/>)}
-    </MapContainer>)
+    </MapContainer></div>)
 }
 
 // Couleurs soft

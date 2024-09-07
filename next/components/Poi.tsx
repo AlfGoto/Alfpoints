@@ -14,10 +14,15 @@ export default function POI(props: propsInterface) {
     if (poi.type === "cafe") icone = icon.coffee
     if (poi.type === 'sports_centre') icone = icon.haltere
     if (poi.type === 'school') icone = icon.school
+    if (poi.type === 'college') icone = icon.school
     if (poi.type === 'bank') icone = icon.bank
     if (poi.type === 'fast_food') icone = icon.fastfood
     if (poi.type === 'post_box') icone = icon.post
     if (poi.type === 'post_office') icone = icon.post
+    if (poi.type === 'parking') icone = icon.parking
+    if (poi.type === 'traffic_park') icone = icon.parking
+    if (poi.type === 'bicycle_parking') icone = icon.parking
+    if (poi.type === 'place_of_worship') icone = icon.church
 
     return (<Marker position={[Number(poi.lat), Number(poi.lon)]} icon={icone} autoPan={false}>
         <Popup autoPan={false}>

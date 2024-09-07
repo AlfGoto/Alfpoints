@@ -80,4 +80,16 @@ const post = new Icon({
     iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 })
-export { legal, food, health, housing, supermarket, resto, coffee, here, haltere, school, bank, fastfood, post };
+const parking = new Icon({
+    iconUrl: 'https://img.icons8.com/?size=100&id=jBrDjCF14mTT&format=png&color=000000',
+    iconSize: [38, 45], // size of the icon
+    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+})
+const church = new Icon({
+    iconUrl: 'https://img.icons8.com/?size=100&id=105192&format=png&color=000000',
+    iconSize: [38, 45], // size of the icon
+    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+})
+export { legal, food, health, housing, supermarket, resto, coffee, here, haltere, school, bank, fastfood, post, parking, church };
