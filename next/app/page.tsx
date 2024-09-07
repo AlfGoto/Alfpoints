@@ -1,12 +1,10 @@
 'use client'
 
 import { useEffect, useState } from "react"
-// import Map from '../components/Map'
 // import { createClient } from "../utils/supabase/client"
 // const supabase = createClient()
 
-import dynamic from 'next/dynamic'; // Composant LeafletMap chargé dynamiquement 
-
+import dynamic from 'next/dynamic'; 
 const Map = dynamic( () => import('../components/Map'), { ssr: false } ); 
 
 
