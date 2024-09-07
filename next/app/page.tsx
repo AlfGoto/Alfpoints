@@ -1,15 +1,20 @@
 'use client'
 
-import { createClient } from "../utils/supabase/client"
-const supabase = createClient()
+import { useEffect, useState } from "react"
+import Map from '../components/Map'
+// import { createClient } from "../utils/supabase/client"
+// const supabase = createClient()
 
 
 export default function Home() {
-    async function unlog() { await supabase.auth.signOut(); location.reload() }
+    const [position, setPos] = useState<Array<number>>()
+    useEffect(()=>{setPos([51.505, -0.09])}, [])
+    // async function unlog() { await supabase.auth.signOut(); location.reload() }
+    if(!position)return<p>Loading...</p>
     return (
-        <section>
-            <p>main</p>
-            <button onClick={unlog}>Unlog</button>
+        <section id='map'>
+            <Map />
+            {/* <button onClick={unlog}>Unlog</button> */}
         </section>
     );
 }
