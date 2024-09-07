@@ -1,12 +1,16 @@
 :root {
     --background: #ffffff;
+    --background1: #dbdbdb;
     --foreground: #171717;
+    --foreground05: #1717174b;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #0a0a0a;
+        --background1: #474747;
         --foreground: #ededed;
+        --foreground05: #ededed42;
     }
 }
 
@@ -66,7 +70,8 @@ a {
             gap: 10px;
             padding: 10px;
             border-radius: 10px;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: var(--foreground05) 0px 7px 29px 0px;
+            background-color: var(--background);
 
             svg{
                 height: 40px;
@@ -74,8 +79,11 @@ a {
             }
 
             &:hover{
-                background-color: rgb(233, 233, 233);
-                box-shadow: rgba(101, 101, 102, 0.2) 0px 7px 29px 0px;
+                background-color: var(--background1);
+
+                p{
+                    user-select: none;
+                }
             }
         }
     }

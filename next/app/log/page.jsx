@@ -8,16 +8,16 @@ const supabase = createClient()
 
 export default function Log() {
     const router = useRouter()
-    useEffect(()=>{checkUser()}, [])
-    
+    useEffect(() => { checkUser() }, [])
+
     async function checkUser() {
         let u = await supabase.auth.getUser()
         if (u.data.user) router.push('/')
     }
 
-    async function signInWithDiscord() { const { data, error } = await supabase.auth.signInWithOAuth({ provider: 'discord', }) }
-    async function signInWithGoogle() { const { data, error } = await supabase.auth.signInWithOAuth({ provider: 'google', }) }
-    async function signInWithTwitter() { const { data, error } = await supabase.auth.signInWithOAuth({ provider: 'twitter', }) }
+    async function signInWithDiscord() { await supabase.auth.signInWithOAuth({ provider: 'discord', }) }
+    async function signInWithGoogle() { await supabase.auth.signInWithOAuth({ provider: 'google', }) }
+    async function signInWithTwitter() { await supabase.auth.signInWithOAuth({ provider: 'twitter', }) }
 
     return (
         <section id='log'>

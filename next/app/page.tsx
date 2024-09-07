@@ -5,7 +5,7 @@ const supabase = createClient()
 
 
 export default function Home() {
-    async function unlog(){const { error } = await supabase.auth.signOut(); location.reload()}
+    async function unlog() { await supabase.auth.signOut(); location.reload() }
     return (
         <section>
             <p>main</p>
