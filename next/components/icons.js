@@ -1,5 +1,6 @@
-import { Icon } from 'leaflet'
+'use client'
 
+import { Icon } from 'leaflet'
 
 const legalIcon = new Icon({
     iconUrl: 'https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/external-legal-business-and-finance-icongeek26-linear-colour-icongeek26.png',
