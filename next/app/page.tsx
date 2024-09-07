@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import Map from '../components/Map'
+import Map from '../utils/Map'
 // import { createClient } from "../utils/supabase/client"
 // const supabase = createClient()
 
