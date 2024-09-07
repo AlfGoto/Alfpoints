@@ -3,7 +3,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import * as icon from './icons'
 import 'leaflet/dist/leaflet.css';
-import { useSVGOverlay } from 'react-leaflet/SVGOverlay';
 import { useState } from 'react';
 
 export default function Map() {
