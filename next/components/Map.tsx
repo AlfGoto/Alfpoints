@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import Poi from './Poi'
 
-export default function Map(props: any) {
+export default function Map(props: propsInterface) {
     const [loc, setLoc] = useState<locInterface>()
     // const [oldLoc, setOldLoc] = useState<locInterface>()
     const [poi, setPoi] = useState<Array<poiInterface>>()
@@ -44,6 +44,9 @@ export default function Map(props: any) {
 // URL : https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png
 // Description : Carte en mode sombre, idéale pour des interfaces de nuit.
 
+interface propsInterface{
+    user_id: string
+}
 interface locInterface {
     lon: number,
     lat: number
