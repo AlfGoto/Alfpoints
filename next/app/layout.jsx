@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import CheckUser from '../components/checkUser'
+import Nav from '../components/Nav'
 
 
 const geistSans = localFont({
@@ -24,6 +25,7 @@ export default function RootLayout({ children, }) {
     return (
         <html lang="en">
             <CheckUser />
+            <Nav />
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
                 {children}
             </body>

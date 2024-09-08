@@ -19,12 +19,10 @@ export default function Home() {
         if(!user)return
         setUser_id(user.id)
     }
-    // async function unlog() { await supabase.auth.signOut(); location.reload() }
     if(!user_id)return<p>Loading...</p>
     return (
         <section id='map'>
             <Map user_id={user_id}/>
-            {/* <button onClick={unlog}>Unlog</button> */}
         </section>
     );
 }

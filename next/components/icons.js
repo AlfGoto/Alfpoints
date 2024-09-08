@@ -6,7 +6,7 @@ const legal = new Icon({
     iconUrl: 'https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/external-legal-business-and-finance-icongeek26-linear-colour-icongeek26.png',
     iconSize: [35, 35], // size of the icon
     iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
 })
 const food = new Icon({
     iconUrl: 'https://img.icons8.com/doodle/48/apple.png',
@@ -24,7 +24,7 @@ const housing = new Icon({
     iconUrl: 'https://img.icons8.com/plasticine/100/exterior.png',
     iconSize: [38, 45], // size of the icon
     iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
 })
 const supermarket = new Icon({
     iconUrl: 'https://img.icons8.com/?size=100&id=18901&format=png&color=000000',

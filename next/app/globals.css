@@ -8,20 +8,22 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #0a0a0a;
-        --background1: #474747;
+        --background1: #5a5a5a;
         --foreground: #ededed;
         --foreground05: #ededed42;
     }
 }
 
 .leaflet-container {
-    /* top: -25svh; */
+    /* position: relative;
+    top: -10svh; */
+    z-index: 10;
     width: 100svw;
     height: 120svh;
     overflow: hidden;
     /* perspective: 1500px;
-    transform-style: preserve-3d; */
-    /* transform: rotateX(30deg); */
+    transform-style: preserve-3d; 
+    transform: rotateX(30deg); */
 }
 
 html,
@@ -32,6 +34,7 @@ body {
 }
 
 body {
+    position: relative;
     color: var(--foreground);
     background: var(--background);
     font-family: Arial, Helvetica, sans-serif;
@@ -43,6 +46,7 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
 }
 
 a {
@@ -95,6 +99,91 @@ a {
                 p {
                     user-select: none;
                 }
+            }
+        }
+    }
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    display: flex;
+
+    .hamburger {
+        display: block;
+        text-align: center;
+    }
+
+    svg {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+    }
+
+    .frstbar,
+    .scndbar,
+    .thrdbar {
+        transition: all 0.35s linear;
+        transform: rotate(0deg);
+    }
+
+    .thrdbar {
+        transform-origin: 5px 30px;
+    }
+
+    .frstbar {
+        transform-origin: 8px 9px;
+    }
+
+    #burgericon.displayed .frstbar {
+        transform: rotate(45deg);
+    }
+
+    #burgericon.displayed .thrdbar {
+        transform: rotate(-45deg);
+    }
+
+    #burgericon.displayed .scndbar {
+        width: 0;
+        opacity: 0;
+    }
+
+    #contentDiv {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 0svh;
+        transition: all ease-in-out .2s;
+        backdrop-filter: blur(2px);
+        background-color: rgba(255, 255, 255, 0.219);
+        width: 90svw;
+        margin: 5svh 5svw;
+        margin-top: 5svh;
+        overflow: hidden;
+
+        &.displayed {
+            height: 90svh;
+        }
+        
+        a, button{
+            display: flex;
+            background-color: var(--background);
+            color: var(--foreground);
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: all .1s linear;
+            font-size: 20px;
+
+
+            /* Hover is not working don't know why */
+            &:hover{
+                display: flex;
+                background-color: var(--background1);
+                border: solid red 5px;
             }
         }
     }
