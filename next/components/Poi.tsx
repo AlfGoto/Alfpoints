@@ -2,13 +2,35 @@
 
 import { Marker, Popup } from 'react-leaflet'
 import * as icon from './icons'
+import { createClient } from "../utils/supabase/client"
+import { useEffect, useState } from 'react'
+const supabase = createClient()
 
 
 export default function POI(props: propsInterface) {
+    const [data, setData] = useState<dataInterface>({ seen: false, lastseen: false })
     const poi: poiInterface = props.data
+    const user_id: string = props.user_id
+
+    useEffect(() => { dbInit() })
+    async function dbInit() {
+        let PoiPassed: string | null = localStorage.getItem('PoiPassed')
+        if (!PoiPassed) return
+        let PoiPassedArr = JSON.parse(PoiPassed)
+        if (PoiPassedArr.includes(poi.osm_id)) return
+        localStorage.setItem('PoiPassed', JSON.stringify([...PoiPassedArr, poi.osm_id]))
+
+        let { data: Poi, error } = await supabase.from('Poi').select("*").eq('id', poi.osm_id)
+        if (error || !Poi) return
+        if (Poi.length === 0) {
+            await supabase
+                .from('Poi')
+                .insert([{ id: poi.osm_id },])
+                .select()
+        }
+    }
 
     let icone = icon.housing
-
     if (poi.class === "shop") icone = icon.supermarket
     if (poi.type === "restaurant") icone = icon.resto
     if (poi.type === "cafe") icone = icon.coffee
@@ -33,8 +55,13 @@ export default function POI(props: propsInterface) {
     </Marker>)
 }
 
+interface dataInterface {
+    seen: boolean,
+    lastseen: boolean
+}
 interface propsInterface {
-    data: poiInterface
+    data: poiInterface,
+    user_id: string
 }
 interface poiInterface {
     address: {

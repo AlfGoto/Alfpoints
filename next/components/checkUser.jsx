@@ -9,7 +9,7 @@ export default function CheckUser() {
     const router = useRouter()
     useEffect(() => {
         checkUser()
-
+        checkPoiPassed()
         // try{
         //     if (screen) {
         //         if (screen.orientation) if (screen.orientation.lock) screen.orientation.lock('portrait-primary')
@@ -20,6 +20,7 @@ export default function CheckUser() {
         // }
     }, [])
 
+    function checkPoiPassed(){if(!localStorage.getItem('PoiPassed'))localStorage.setItem('PoiPassed', JSON.stringify([]))}
     async function createUser(data) {
         let { data: Users, error } = await supabase
             .from('Users')

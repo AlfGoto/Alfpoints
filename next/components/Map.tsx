@@ -1,15 +1,15 @@
 'use client'
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import * as icon from './icons'
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import Poi from './Poi'
 
-export default function Map() {
+export default function Map(props: any) {
     const [loc, setLoc] = useState<locInterface>()
     // const [oldLoc, setOldLoc] = useState<locInterface>()
-    const [poi, setPoi] = useState<Array<poiInterface>>([])
+    const [poi, setPoi] = useState<Array<poiInterface>>()
 
     useEffect(() => { getLoc() }, [])
     useEffect(() => { getNearby() }, [loc])
@@ -21,16 +21,14 @@ export default function Map() {
             .then(e => e.json())
             .then(e => setPoi(e))
     }
-    if (!loc) return <p>Loading...</p>
-    return (<div id='mapPersc'><MapContainer center={[loc.lat, loc.lon]} zoom={23} scrollWheelZoom={false} dragging={false} doubleClickZoom={false} zoomControl={false}>
+    if (!loc) return <p>Map loading...</p>
+    // if (!poi) return <p>Poi loading...</p>
+    return (<div id='mapPersc'><MapContainer center={[loc.lat, loc.lon]} zoom={23} dragging={false} scrollWheelZoom={false} doubleClickZoom={false} zoomControl={false}>
         <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url=" https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" />
         <Marker position={[loc.lat, loc.lon]} icon={icon.here} autoPan={false}>
-            <Popup autoPan={false}>
-                A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
         </Marker>
-        {poi.map(e=><Poi key={e.osm_id} data={e}/>)}
+        {poi && poi.map(e=><Poi key={e.osm_id} data={e} user_id={props.user_id}/>)}
     </MapContainer></div>)
 }
 
