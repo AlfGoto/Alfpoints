@@ -8,7 +8,7 @@ const supabase = createClient()
 
 
 export default function POI(props: propsInterface) {
-    // const [data, setData] = useState<dataInterface>({ seen: false, lastseen: false })
+    const [data, setData] = useState<dataInterface>({ seen: false, lastseen: false })
     const poi: poiInterface = props.data
 
     useEffect(() => { dbInit() })
@@ -27,7 +27,9 @@ export default function POI(props: propsInterface) {
                 .insert([{ id: poi.osm_id },])
                 .select()
         }
+        setData({ seen: false, lastseen: false })
     }
+    console.log(data)
 
     let icone = icon.housing
     if (poi.class === "shop") icone = icon.supermarket

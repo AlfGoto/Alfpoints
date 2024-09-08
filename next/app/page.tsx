@@ -9,7 +9,7 @@ const Map = dynamic(() => import('../components/Map'), { ssr: false });
 
 
 export default function Home() {
-    const [user_id, setUser_id] = useState<any>()
+    const [user_id, setUser_id] = useState<string>()
     // const [position, setPos] = useState<Array<number>>()
 
     useEffect(() => { getUser() }, [])
